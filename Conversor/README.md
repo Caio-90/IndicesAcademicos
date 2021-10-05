@@ -1,0 +1,1 @@
+Software para converter as planilhas de indices de reprovação em SQL para banco de dados
