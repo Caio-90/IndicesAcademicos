@@ -1,5 +1,5 @@
 {
-  "name": "Back",
+  "name": "connection",
   "version": "1.0.0",
   "description": "",
   "main": "db.js",

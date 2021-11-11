@@ -11,15 +11,16 @@ async function getMatters() {
 
 function returnMatters() {
     getMatters().then(matters =>{
-        const st = require("./store");
         var values = matters;
+        
+        JSON.stringify(values);
         //console.log(values);
-        //return values  
-        st.breakMatters(values)
+        return values;  
        }).catch(err =>{
          console.log("ERRO: ",err);
     });
 }
 
-returnMatters()
 
+module.exports = { returnMatters }
+returnMatters();
