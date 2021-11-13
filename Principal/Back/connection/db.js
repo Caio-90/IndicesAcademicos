@@ -1,6 +1,6 @@
 async function connect() {
-    if (global.connection)
-        return global.connection.connect();
+    if (connection)
+        return connection.connect();
 
     const { Pool } = require('pg');
 
@@ -11,20 +11,17 @@ async function connect() {
         user: 'read_only_user',
         password: '436700'
     });
-    
-    //apenas testando a conexão
-    const client = await pool.connect();
-    console.log("Criou pool de conexões no PostgreSQL!");
-
     //guardando para usar sempre o mesmo
-    global.connection = Pool;
-    return pool.connect();
+    var connection = Pool;
+    return pool;
 }
 
 async function selectMatters() {
     const client = await connect();
     const res = await client.query('SELECT * FROM matters');
+    //console.log(res.rows)
     return res.rows;
+    
 }
 
 module.exports = { selectMatters }
